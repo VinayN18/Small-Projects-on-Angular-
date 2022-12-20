@@ -22,6 +22,7 @@ export class AppComponent {
   };
   details = {
     name: 'string',
+    idee: 'string',
     id: 'string',
     description: 'string',
     date: 'string',
@@ -98,6 +99,7 @@ export class AppComponent {
     this.details.id = user.Id;
     this.details.description = user.Description;
     this.details.date = user.Date;
+    this.details.idee = user.id;
   }
   onDataClose() {
     this.displayStyle1 = 'none';
@@ -106,6 +108,7 @@ export class AppComponent {
   //   this.displayStyle1 = 'none';
   // }
   onDelete(user) {
-    this.formData = this.formData.filter((data) => data.id !== user.id);
+    this.formData = this.formData.filter((data) => data.id !== user.idee);
+    this.displayStyle1 = 'none';
   }
 }

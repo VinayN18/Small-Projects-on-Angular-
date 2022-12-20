@@ -248,7 +248,7 @@
         <br /><br />
       </div>
     </div>
-    <div *ngIf="submitted">
+    <div>
       <h1>Your Data</h1>
 
       <table class="table">
@@ -259,9 +259,15 @@
             <th class="tableHead">Project Description</th>
             <th class="tableHead">Project Deadline</th>
             <th class="tableHead">Details</th>
-            <th class="tableHead">Delete</th>
+            <!-- <th class="tableHead">Delete</th> -->
           </tr>
         </thead>
+        <div *ngIf="formData.length === 0">
+          <p>
+            You have not added any projects!! NO Projects :(( There is nothing
+            here, add a new project
+          </p>
+        </div>
         <tbody>
           <tr *ngFor="let user of formData">
             <td class="tableData">{{ user.Name }}</td>
@@ -271,11 +277,11 @@
             <td class="tableData">
               <button class="btn" (click)="onGetDetails(user)">Details</button>
             </td>
-            <td class="tableData">
+            <!-- <td class="tableData">
               <button class="btn" (click)="onDelete(user)">
                 Delete Project
               </button>
-            </td>
+            </td> -->
           </tr>
         </tbody>
       </table>
@@ -293,6 +299,7 @@
       <p>Project Date: {{ details.date }}</p>
       <div class="data-box-actions">
         <button class="btn" (click)="onDataClose()">Close</button>
+        <button class="btn" (click)="onDelete(details)">Delete Project</button>
       </div>
     </div>
   </body>

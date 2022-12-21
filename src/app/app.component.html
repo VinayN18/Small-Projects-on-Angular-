@@ -258,26 +258,26 @@
             <th class="tableHead">Project Id</th>
             <th class="tableHead">Project Description</th>
             <th class="tableHead">Project Deadline</th>
-            <th class="tableHead">Details</th>
-            <!-- <th class="tableHead">Delete</th> -->
+            <!-- <th class="tableHead">Details</th>
+            <th class="tableHead">Delete</th> -->
           </tr>
         </thead>
-        <div *ngIf="formData.length === 0">
+        <div class="noProject" *ngIf="formData.length === 0">
           <p>
-            You have not added any projects!! NO Projects :(( There is nothing
-            here, add a new project
+            You have not added any projects!! Add a new project by clicking on
+            the Add Project button
           </p>
         </div>
         <tbody>
-          <tr *ngFor="let user of formData">
+          <tr *ngFor="let user of formData" (click)="onRowClick(user)">
             <td class="tableData">{{ user.Name }}</td>
             <td class="tableData">{{ user.Id }}</td>
             <td class="tableData">{{ user.Description }}</td>
             <td class="tableData">{{ user.Date }}</td>
-            <td class="tableData">
+            <!-- <td class="tableData">
               <button class="btn" (click)="onGetDetails(user)">Details</button>
             </td>
-            <!-- <td class="tableData">
+            <td class="tableData">
               <button class="btn" (click)="onDelete(user)">
                 Delete Project
               </button>
